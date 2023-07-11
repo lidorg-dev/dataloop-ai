@@ -1,8 +1,10 @@
 
 resource "google_storage_bucket" "default" {
   name          = "${var.project_id}-bucket-tfstate"
-  force_destroy = false
+  project       = "${var.project_id}"
+  force_destroy = true
   location      = "US"
+
   storage_class = "STANDARD"
   versioning {
     enabled = true
